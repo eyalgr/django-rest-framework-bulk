@@ -26,6 +26,7 @@ class BulkSerializerMixin(object):
                 request_method in ('PUT', 'PATCH'))):
             id_field = self.fields[id_attr]
             id_value = id_field.get_value(data)
+            id_value = id_field.to_internal_value(id_value)
 
             ret[id_attr] = id_value
 
